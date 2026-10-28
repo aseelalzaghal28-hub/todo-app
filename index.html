@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مهامي | لوحة إدارة المهام</title>
+<meta name="description" content="لوحة لإدارة المهام اليومية: إضافة وتعديل وحذف وتصنيف حسب الأولوية مع حفظ تلقائي ووضع داكن.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <header class="top">
+    <div>
+      <h1>مهامي</h1>
+      <p id="today" class="sub"></p>
+    </div>
+    <button type="button" id="themeBtn" class="theme" aria-pressed="false">الوضع الداكن</button>
+  </header>
+
+  <form id="addForm" class="add">
+    <label for="title" class="sr">عنوان المهمة</label>
+    <input id="title" type="text" maxlength="120" placeholder="شو بدك تنجز اليوم؟" autocomplete="off">
+    <label for="prio" class="sr">الأولوية</label>
+    <select id="prio">
+      <option value="high">أولوية عالية</option>
+      <option value="medium" selected>أولوية متوسطة</option>
+      <option value="low">أولوية منخفضة</option>
+    </select>
+    <button type="submit" class="primary">إضافة</button>
+  </form>
+  <p id="msg" class="msg" role="status" aria-live="polite"></p>
+
+  <div class="bar">
+    <div class="tabs" role="group" aria-label="تصفية المهام">
+      <button type="button" data-filter="all" aria-pressed="true">الكل</button>
+      <button type="button" data-filter="active" aria-pressed="false">المتبقية</button>
+      <button type="button" data-filter="done" aria-pressed="false">المنجزة</button>
+    </div>
+    <span id="count" class="count"></span>
+  </div>
+
+  <ul id="list" class="list"></ul>
+  <p id="empty" class="empty" hidden></p>
+
+  <div class="foot">
+    <button type="button" id="clearDone" class="link" hidden>حذف المهام المنجزة</button>
+    <span class="sub">تُحفظ مهامك تلقائيًا في متصفحك.</span>
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
